@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Création de compte</title>
+    <!-- Inclure les fichiers CSS et JS nécessaires -->
+  </head>
+  <body>
+<%- include('index.ejs') %>
+<section class="container mx-auto">
+    <div class="row col-8 card mx-auto">
+        <h3 class="text-center">Créer son compte</h3><br>
+      <form action="/insert " method="POST">
+        <div class="col-8 mx-auto">
+           <!-- <label for="nom"> Insérez votre image:</label><br>
+           <input type="file" class="form-control" name="pic" ><br> -->
+
+           <label for="pseudo"> Pseudo:</label><br>
+           <input type="text" class="form-control" id="pseudo" name="pseudo"  placeholder="pseudonyme"><br>
+
+           <label for="email"> Email:</label><br>
+           <input type="email" class="form-control"  id="email" name="email"  placeholder="email"><br>
+
+           <label for="password">Mot de passe</label><br>
+           <input type="password" class="form-control"  id="pass" name="pass"  placeholder="mot de passe"><br>
+
+           <label for="avatar">Avatar</label>
+           <label for="profil">Image de profil :</label>
+           <select name="profil" id="profil" required>
+             <option value="">Choisissez une image de profil</option>
+             <option value="images/ahja_gaming.png">Image de profil 1</option>
+             <option value="images/image.png">Image de profil 2</option>
+             <!-- <option value="/images/profil3.jpg">Image de profil 3</option> -->
+           </select>
+           <br>
+           <button type="submit" class="btn btn-custom mb-2">Créer son compte</button>
+        </div>
+      </form>
+    </div>
+</section>
+</body>
+</html>

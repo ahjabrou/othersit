@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Détails du jeu</title>
+    <!-- Inclure les fichiers CSS et JS nécessaires -->
+  </head>
+  <body>
+
+<%- include('index.ejs') %>
+
+<section class="container">
+    <div class="card mb-3" style="padding:10px;">
+      <h1 class="text-center" style="color: black;">Memory game</h1>
+        <div class="bd-example" >
+
+<div class="text-center">
+        <iframe id="game-iframe" src="memory_webgl/index.html" width="100%" height="80%"></iframe>
+
+            <button id="play-button" class="btn btn-custom mb-2" style="margin:auto;">
+                Jouer 
+            </button>
+            <button id="close-button" class="btn btn-custom mb-2">Fermer</button>
+</div>
+            <!--carousel-->
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="images/Memory_game.png" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="..." class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="..." class="d-block w-100" alt="...">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+            <!--carousel end-->
+            <div class="container text-description" style="padding:20px;">
+                <p style="color:black">Memory game est un jeu dans lequel le joueur doit  
+                    faire correspondre des cartes par paires. 
+                    <p style="color:black">Le jeu commence avec un ensemble de cartes retournées face cachée.</p>
+                    <p style="color:black"> Le joueur doit 
+                    retourner deux cartes à la fois, dans l'espoir de trouver une paire correspondante. </p>
+                    <p style="color:black">Si les cartes retournées ne correspondent pas, elles sont remises face cachée et la partie continue. 
+                    Le but est de trouver toutes les paires.</p>
+                    
+            </div>
+  
+        </div>
+     
+  </section>
+
+  <script>
+    // Sélectionne la balise iframe et le bouton "Jouer"
+const gameIframe = document.getElementById('game-iframe');
+const playButton = document.getElementById('play-button');
+const closeButton = document.getElementById('close-button');
+
+// Masque la balise iframe au chargement de la page
+gameIframe.style.display = 'none';
+
+// Ajoute un gestionnaire d'événement pour le clic sur le bouton "Jouer"
+playButton.addEventListener('click', () => {
+// Ajuste la taille de la balise iframe
+const width = window.innerWidth;
+const height = window.innerHeight;
+gameIframe.style.width = `${width * 0.8}px`;
+gameIframe.style.height = `${height * 0.8}px`;
+
+// Affiche la balise iframe
+gameIframe.style.display = 'block';
+
+// Masque le bouton "Jouer"
+playButton.style.display = 'none';
+
+});
+
+
+// Ajoute un gestionnaire d'événement pour le clic sur le bouton "Fermer"
+closeButton.addEventListener('click', () => {
+// Masque la balise iframe
+gameIframe.style.display = 'none';
+
+// Affiche le bouton "Jouer"
+playButton.style.display = 'block';
+
+});
+
+// Ajoute un gestionnaire d'événement pour le redimensionnement de la fenêtre
+window.addEventListener('resize', () => {
+// Obtient la taille de la fenêtre
+const width = window.innerWidth;
+const height = window.innerHeight;
+
+// Ajuste la taille de la balise iframe
+gameIframe.style.width = `${width * 0.8}px`;
+gameIframe.style.height = `${height * 0.8}px`;
+});
+  </script>
+</body>
+  </html>
