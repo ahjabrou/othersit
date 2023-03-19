@@ -5,13 +5,33 @@
     <title>Connexion</title>
   </head>
   <body>
+    <%- include('index.ejs') %><!--/connecter est utiliser pour la requête post et /connect
+    pour afficher le formulaire-->
     <section class="container mx-auto">
       <div class="row col-8 card mx-auto">
           <h3 class="text-center">Connexion</h3><br>
+
+<!--pour afficher les messages d'erreur ou de succès grace à connect-flash -->
+
+<% if (messages.error) { %>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <%= messages.error %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+<% } %>
+
+<% if (messages.success) { %>
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <%= messages.success %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+<% } %>
+
+
     <form action="/connecter" method="post">
       <div class="col-8 mx-auto">
       <label for="email"> Email:</label><br>
-      <input type="email" class="form-control"  id="email" name="email"  placeholder="email"><br>
+      <input type="email" class="form-control"  id="email" name="email"  placeholder="email" ><br>
       <br>
       <label for="password">Mot de passe :</label>
       <input type="password" class="form-control" name="pass" id="pass" placeholder="mot de passe">
